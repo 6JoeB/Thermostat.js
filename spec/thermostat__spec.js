@@ -30,4 +30,9 @@ describe("Thermostat", function () {
         thermostat.decrease(15)
         expect(thermostat.temperature).toEqual(10)
     });
+
+    it('has a power saving mode that defaults to on', function () {
+        thermostat.increase(100)
+        expect(thermostat.temperature).toEqual(25)
+    });
 });
