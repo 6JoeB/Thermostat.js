@@ -2,11 +2,11 @@
 
 var thermostat;
 
-describe("Thermostat", function () {
+beforeEach(function () {
+    thermostat = new Thermostat;
+});
 
-    beforeEach(function () {
-        thermostat = new Thermostat;
-    });
+describe("Thermostat", function () {
 
     it('creates an instance of thermostat', function () {
         expect(thermostat).toBeInstanceOf(Thermostat);
@@ -16,23 +16,36 @@ describe("Thermostat", function () {
         expect(thermostat.temperature).toEqual(20)
     });
 
-    it('can increase the temperature with an up function', function () {
-        thermostat.increase(1);
-        expect(thermostat.temperature).toEqual(21)
+    describe("Decreasing temp", function () {
+
+        it('can decrease the temperature with a decrease function', function () {
+            thermostat.decrease(1);
+            expect(thermostat.temperature).toEqual(19)
+        });
+
+        it('has a minimum temperature of 10', function () {
+            thermostat.decrease(15)
+            expect(thermostat.temperature).toEqual(10)
+        });
+
     });
 
-    it('can decrease the temperature with an up function', function () {
-        thermostat.decrease(1);
-        expect(thermostat.temperature).toEqual(19)
+    describe("Increasing temp", function () {
+
+        it('can increase the temperature with an increase function', function () {
+            thermostat.increase(1);
+            expect(thermostat.temperature).toEqual(21)
+        });
+
+        it('has a power saving mode that defaults to on', function () {
+            expect(thermostat.powerSavingMode).toEqual(true)
+        });
+
+        it('has a power saving mode that sets the max temp to 25', function () {
+            thermostat.increase(100)
+            expect(thermostat.temperature).toEqual(25)
+        });
+
     });
 
-    it('has a minimum temperature of 10', function () {
-        thermostat.decrease(15)
-        expect(thermostat.temperature).toEqual(10)
-    });
-
-    it('has a power saving mode that defaults to on', function () {
-        thermostat.increase(100)
-        expect(thermostat.temperature).toEqual(25)
-    });
 });
