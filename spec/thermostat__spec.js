@@ -46,6 +46,11 @@ describe("Thermostat", function () {
             expect(thermostat.temperature).toEqual(25);
         });
 
+        it('can change to power saving mode to off', function () {
+            thermostat.powerSavingModeButton(false);
+            expect(thermostat.powerSavingMode).toEqual(false);
+        });
+
         it('has a max temp of 32 when power saving mode is off', function () {
             thermostat.powerSavingModeButton(false);
             thermostat.increase(100);
