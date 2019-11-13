@@ -18,10 +18,9 @@ describe("Thermostat", function () {
 
     it('can reset to 20 with a reset function', function () {
         thermostat.decrease(10);
-        expect(thermostat.temperature).toEqual(10);
-        thermostat.resetTemp
+        thermostat.resetTemp;
         expect(thermostat.temperature).toEqual(20);
-    })
+    });
 
     describe("Decreasing temp", function () {
 
@@ -62,6 +61,24 @@ describe("Thermostat", function () {
             thermostat.powerSavingModeButton(false);
             thermostat.increase(100);
             expect(thermostat.temperature).toEqual(32);
+        });
+
+    });
+
+    describe("current energy usage", function () {
+
+        it('can tell < 18 is low usage', function () {
+            thermostat.decrease(4)
+            expect(thermostat.checkUsage).toEqual("low-usage")
+        });
+
+        it('can tell < 25 is medium usage', function () {
+            expect(thermostat.checkUsage).toEqual("medium-usage")
+        });
+
+        it('can tell > 25 is high usage', function () {
+            thermostat.increase(6)
+            expect(thermostat.checkUsage).toEqual("high-usage")
         });
 
     });
