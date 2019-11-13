@@ -11,17 +11,17 @@ class Thermostat {
     }
 };
 
-Thermostat.prototype.increase = function (number) {
+Thermostat.prototype.increase = function (number = 1) {
     if (this.powerSavingMode == true && this.temperature + number > _POWSAVMAXTEMP) {
         this.temperature = _POWSAVMAXTEMP;
     } else if (this.powerSavingMode == false && this.temperature + number > _MAXTEMP) {
         this.temperature = _MAXTEMP;
     } else {
-        this.temperature += number
+        this.temperature += number;
     }
 };
 
-Thermostat.prototype.decrease = function (number) {
+Thermostat.prototype.decrease = function (number = 1) {
     if (this.temperature - number < _MINTEMP) {
         this.temperature = _MINTEMP;
     } else {
