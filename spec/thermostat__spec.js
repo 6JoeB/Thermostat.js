@@ -16,6 +16,13 @@ describe("Thermostat", function () {
         expect(thermostat.temperature).toEqual(20);
     });
 
+    it('can reset to 20 with a reset function', function () {
+        thermostat.decrease(10);
+        expect(thermostat.temperature).toEqual(10);
+        thermostat.resetTemp
+        expect(thermostat.temperature).toEqual(20);
+    })
+
     describe("Decreasing temp", function () {
 
         it('can decrease the temperature with a decrease function', function () {
