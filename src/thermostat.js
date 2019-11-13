@@ -7,6 +7,7 @@ class Thermostat {
     constructor() {
         this.temperature = 20;
         this.powerSavingMode = true;
+        this.currentEnergyUsage = "medium-usage"
     }
 };
 
@@ -35,4 +36,16 @@ Thermostat.prototype.powerSavingModeButton = function (setting) {
 
 Thermostat.prototype.resetTemp = function () {
     this.temperature = 20;
+};
+
+Thermostat.prototype.checkUsage = function () {
+    if (this.temperature > 18 && this.temperature < 25) {
+        this.currentEnergyUsage = "medium-usage";
+    }
+    else if (this.temperature < 18) {
+        this.currentEnergyUsage = "low-usage";
+    }
+    else {
+        this.currentEnergyUsage = "high-usage";
+    }
 };
