@@ -19,11 +19,13 @@ $(document).ready(function () {
 
     $('#powersaving-on').click(function () {
         thermostat.powerSavingModeButton(true);
+        $('#power-saving-status').text("on");
         updateTemperature();
     });
 
     $('#powersaving-off').click(function () {
         thermostat.powerSavingModeButton(false);
+        $('#power-saving-status').text("off");
         updateTemperature();
     });
 
@@ -31,11 +33,15 @@ $(document).ready(function () {
         $('#temperature').text(thermostat.temperature);
         thermostat.checkUsage();
         if (thermostat.currentEnergyUsage === "low-usage") {
-            $('#temperature').css('color', 'green');
+            $('#temperature').addClass("low-usage");
+            $('#temperature').removeClass("medium-usage");
         } if (thermostat.currentEnergyUsage === "medium-usage") {
-            $('#temperature').css('color', 'orange');
+            $('#temperature').addClass("medium-usage");
+            $('#temperature').removeClass("low-usage");
+            $('#temperature').removeClass("high-usage");
         } if (thermostat.currentEnergyUsage === "high-usage") {
-            $('#temperature').css('color', 'red');
+            $('#temperature').addClass("high-usage");
+            $('#temperature').removeClass("medium-usage");
         }
         // $('#temperature').attr('class', thermostat.currentEnergyUsage());
     };
