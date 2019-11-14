@@ -11,7 +11,7 @@ class Thermostat {
     }
 };
 
-Thermostat.prototype.increase = function (number = 1) {
+Thermostat.prototype.increase = function (number) {
     if (this.powerSavingMode == true && this.temperature + number > _POWSAVMAXTEMP) {
         this.temperature = _POWSAVMAXTEMP;
     } else if (this.powerSavingMode == false && this.temperature + number > _MAXTEMP) {
@@ -21,7 +21,7 @@ Thermostat.prototype.increase = function (number = 1) {
     }
 };
 
-Thermostat.prototype.decrease = function (number = 1) {
+Thermostat.prototype.decrease = function (number) {
     if (this.temperature - number < _MINTEMP) {
         this.temperature = _MINTEMP;
     } else {
@@ -39,7 +39,7 @@ Thermostat.prototype.resetTemp = function () {
 };
 
 Thermostat.prototype.checkUsage = function () {
-    if (this.temperature > 18 && this.temperature < 25) {
+    if (this.temperature >= 18 && this.temperature < 25) {
         this.currentEnergyUsage = "medium-usage";
     }
     else if (this.temperature < 18) {

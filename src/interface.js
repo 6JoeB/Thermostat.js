@@ -29,13 +29,14 @@ $(document).ready(function () {
 
     function updateTemperature() {
         $('#temperature').text(thermostat.temperature);
-        (thermostat.checkUsage);
-        if (thermostat.currentEnergyUsage() === 'low-usage') {
-            $('#temperature').css('color', 'green')
-        } else if (thermostat.currentEnergyUsage() === 'medium-usage') {
-            $('#temperature').css('color', 'black')
-        } else {
-            $('#temperature').css('color', 'red')
+        thermostat.checkUsage();
+        if (thermostat.currentEnergyUsage === "low-usage") {
+            $('#temperature').css('color', 'green');
+        } if (thermostat.currentEnergyUsage === "medium-usage") {
+            $('#temperature').css('color', 'orange');
+        } if (thermostat.currentEnergyUsage === "high-usage") {
+            $('#temperature').css('color', 'red');
         }
+        // $('#temperature').attr('class', thermostat.currentEnergyUsage());
     };
 });
