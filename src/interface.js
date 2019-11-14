@@ -43,6 +43,21 @@ $(document).ready(function () {
             $('#temperature').addClass("high-usage");
             $('#temperature').removeClass("medium-usage");
         }
-        // $('#temperature').attr('class', thermostat.currentEnergyUsage());
+    };
+
+
+    $('#select-city').submit(function (event) {
+        event.preventDefault();
+        var city = $('#current-city').val();
+        displayWeather(city);
+    })
+
+    function displayWeather(city) {
+        var url = 'http://api.openweathermap.org/data/2.5/weather?q=' + city;
+        var token = '&appid=27aa2974df95d87e08c1683a11ba44af';
+        var units = '&units=metric';
+        $.get(url + token + units, function (data) {
+            $('#current-temperature').text(data.main.temp);
+        });
     };
 });

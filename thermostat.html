@@ -11,9 +11,9 @@
 <div>
 
     <body>
-        <section>
+        <section class="thermosec">
             <h2>Thermostat</h2><br>
-            <h1 class="" id="temperature">°C</h1>
+            <h1 class="" id="temperature"></h1>
             <p>
                 <button class="button" id="temperature-up">+</button>
                 <button class="button" id="temperature-down">-</button>
@@ -22,6 +22,11 @@
                 <button class="button" id="powersaving-on">PSM on</button>
                 <button class="button" id="powersaving-off">PSM off</button>
             </p>
+            <h3>Current temperature in <span id="current-temperature">20</span></h3>
+            <form id="select-city">
+                <input id="current-city" type="text" placeholder="Enter a city"></input>
+                <input type="submit"></input>
+            </form>
         </section>
     </body>
 </div>
