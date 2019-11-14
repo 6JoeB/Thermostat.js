@@ -25,6 +25,15 @@ h2 {
   background-color: rgba(0, 89, 255, 0.507);
   width: 260px;
   margin: 0 auto;
+  border-radius: 7px;
+}
+
+h3 {
+  font-size: 30px;
+  background-color: rgba(0, 89, 255, 0.507);
+  width: 390px;
+  margin: 0 auto;
+  border-radius: 7px;
 }
 
 .button:hover {
@@ -38,15 +47,33 @@ button {
   background-color: white;
 }
 
+.submit{
+  width: 60px;
+  height: 90px;
+}
+
 .thermosec {
   max-width: 400px;
-  height: 400px;
+  height: 490px;
   border: 10px solid rgb(0, 0, 0);
   padding: 50px;
   margin: 20px;
   background-color: rgba(0, 102, 255, 0.198);
   margin: 0 auto;
   text-align: center;
+  font-size: 25px;
+  border-radius: 7px;
+}
+
+.background{
+  background-color: rgba(0, 89, 255, 0.507);
+  width: 280px;
+  height: 35px;
+  margin: 0 auto;
+  border-radius: 7px;
+}
+
+#current-city {
   font-size: 25px;
 }
 
